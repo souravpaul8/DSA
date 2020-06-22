@@ -64,7 +64,16 @@ void initializeAdjacencyList(int nodes, int edges) {
 	}
 }
 
-
+//Utility function to print Adjacency List
+void printAdjacencyList(int nodes, int edges) {
+	for (int i = 1; i <= nodes; i++) {
+		cout << i << "-->";
+		for (auto j = adjacencyList[i].begin(); j != adjacencyList[i].end(); j++) {
+			cout << *j << " ";
+		}
+		cout << endl;
+	}
+}
 int main()
 {
 	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
@@ -76,6 +85,7 @@ int main()
 	int nodes, edges, startNode;
 	cin >> nodes >> edges >> startNode;
 	initializeAdjacencyList(nodes, edges);
+	printAdjacencyList(nodes, edges);
 	DFSiterative(startNode, nodes);
 	DFSrecursiveUtil(startNode, nodes);
 	return 0;
