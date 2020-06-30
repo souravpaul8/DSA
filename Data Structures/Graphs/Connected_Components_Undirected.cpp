@@ -30,15 +30,17 @@ void printComponent(int node, bool visited[]) {
 void printConnectedComponents(int nodes) {
   //Array to look if the node is visited or not
   bool visited[nodes] = {false};
-
+  int componentCount = 0;
   //Iterate through all the nodes, if node is visited
   // means it is another component
   for (int node = 0; node < nodes; node++) {
     if (!visited[node]) {
       printComponent(node, visited);
+      componentCount++;
       cout << endl;
     }
   }
+  cout <<  "No of connected components: " << componentCount << endl;
 }
 
 //Space Efficient, takes less than O(N X N) but Search takes O(Nodes)
