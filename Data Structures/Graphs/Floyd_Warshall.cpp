@@ -7,7 +7,6 @@ using namespace std;
 #define mod 1000000007
 #define inf 1e18
 #define ll long long
-#define PI 3.1415926536
 #define INF 99999
 
 // Solves the all-pairs shortest path
