@@ -240,6 +240,31 @@ public:
 		// Sending in updates ranges to the right and left subtree
 		return isBST(root->right, root->key, max) && isBST(root->left, min, root->key);
 	}
+
+    	void mirror(Node* root) {
+		if (root) {
+			/* do the subtrees */
+			mirror(root->left);
+			mirror(root->right);
+			/* swap the pointers in this node */
+			Node* temp = root->left;
+			root->left = root->right;
+			root->right = temp;
+		}
+	}
+
+	//Print nodes at k distace from root
+	void printKDistant(Node* root, int k) {
+		if (root == NULL)
+			return;
+		if (k == 0) {
+			cout << root->key << endl;
+			return;
+		} else {
+			printKDistant(root->left, k - 1);
+			printKDistant(root->right, k - 1);
+		}
+	}
 };
 
 int main()
