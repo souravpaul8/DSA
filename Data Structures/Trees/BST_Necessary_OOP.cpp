@@ -265,6 +265,23 @@ public:
 			printKDistant(root->right, k - 1);
 		}
 	}
+
+    	void printAllRootToLeaf(Node* root, int path[], int pathLen) {
+		if (root == NULL)
+			return;
+		path[pathLen] = root->key;
+		pathLen++;
+
+		if (root->left == NULL && root->right == NULL) {
+			for (int i = 0; i < pathLen; i++) {
+				cout << path[i] << " ";
+			}
+			cout << endl;
+		} else {
+			printAllRootToLeaf(root->left, path, pathLen);
+			printAllRootToLeaf(root->right, path, pathLen);
+		}
+	}
 };
 
 int main()
